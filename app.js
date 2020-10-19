@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
-console.log(process.env.NODE_ENV);
 const {
   errors,
 } = require('celebrate');
