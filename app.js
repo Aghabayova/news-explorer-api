@@ -12,6 +12,7 @@ const {
 
 const limiter = require('./config/rate-limiter');
 const router = require('./routes');
+const { DB_URL } = require('./config/mongodb');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/error-handler');
@@ -20,7 +21,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 // подключаемся к серверу mongo
-mongoose.connect('mongodb://localhost:27017/newsexplorerdb', {
+mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
