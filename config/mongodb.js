@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
-  DB_URL: process.env.DB_URL || 'mongodb://localhost:27017/newsexplorerdb',
+  DB_URL: (process.env.NODE_ENV !== 'production') ? 'mongodb://localhost:27017/newsexplorerdb' : process.env.DB_URL,
 };
