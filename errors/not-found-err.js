@@ -1,8 +1,8 @@
 class NotFoundErr extends Error {
-  constructor(message) {
-    super(message);
-    this.statusCode = 404;
+  constructor(message, ...rest) {
+    super(...rest);
+    this.status = 404;
+    this.message = message;
   }
 }
-
 module.exports = NotFoundErr;
