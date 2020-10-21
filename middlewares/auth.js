@@ -13,9 +13,9 @@ module.exports = (req, res, next) => {
       JWT_SECRET,
     );
   } catch (err) {
-    throw new AuthorisationErr(
-      'Необходима авторизация',
-    );
+    throw new AuthorisationErr({
+      message: 'Необходима авторизация',
+    });
   }
 
   req.user = payload; // записываем пейлоуд в объект запроса

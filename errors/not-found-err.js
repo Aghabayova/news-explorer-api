@@ -5,4 +5,5 @@ class NotFoundErr extends Error {
     this.message = message;
   }
 }
+
 module.exports = NotFoundErr;

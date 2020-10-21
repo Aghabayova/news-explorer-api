@@ -11,6 +11,7 @@ router.use('/', authenticationRouter);
 router.use(auth);
 router.use('/', userRouter);
 router.use('/', articleRouter);
+
 router.use('/*', errorRouter);
 
 module.exports = router;

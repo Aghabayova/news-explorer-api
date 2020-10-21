@@ -31,7 +31,7 @@ const createArticle = (req, res, next) => {
 
 const deleteArticle = (req, res, next) => {
   Article.findOneAndDelete({ _id: req.params.articleId, owner: req.user._id })
-    .orFail(new NotFoundErr('Нет статьи с таким id или вы не являетесь ее автором'))
+    .orFail(new NotFoundErr({ message: 'Нет статьи с таким id или вы не являетесь ее автором' }))
     .then((article) => {
       res
         .status(200)
