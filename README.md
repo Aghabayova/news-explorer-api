@@ -64,6 +64,6 @@
 
 ## Домен
 
-[samira-news.students.nomoreparties.xyz](samira-news.students.nomoreparties.xyz)
+[https://api.my-practicum.ru/](https://api.my-practicum.ru/)
 
 
