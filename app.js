@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const {
   errors,
@@ -32,7 +33,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()); // подключаем парсер кук как мидлвэр
 app.use(requestLogger); // подключаем логгер запросов
+app.use(
+  cors({
+    origin: [
+      'http://localhost:3000',
+      'https://api.my-practicum.ru',
+      'http://api.my-practicum.ru',
+      'https://www.api.my-practicum.ru',
+      'http://www.api.my-practicum.ru',
+      'https://aghabayova.github.io/news-explorer-frontend/',
 
+    ],
+    credentials: true,
+  }),
+);
 app.use('/', router);
 
 app.use((errorLogger)); // подключаем логгер ошибок
