@@ -61,7 +61,6 @@ const login = (req, res, next) => {
         httpOnly: true,
         sameSite: true,
       })
-        // .send({ message: 'успешная авторизация' });
         .send({
           data: {
             _id: user._id,
