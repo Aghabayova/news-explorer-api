@@ -3,11 +3,12 @@ const BadRequestErr = require('../errors/bad-request-err');
 const NotFoundErr = require('../errors/not-found-err');
 
 const getArticles = (req, res, next) => {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .populate('user')
     .then((articles) => res.send({ data: articles }))
     .catch(next);
 };
+
 const createArticle = (req, res, next) => {
   const {
     keyword,

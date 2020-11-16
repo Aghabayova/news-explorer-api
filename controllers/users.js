@@ -2,17 +2,23 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const ConflictErr = require('../errors/conflict-err');
+const NotFoundErr = require('../errors/not-found-err');
 
 const { JWT_SECRET } = require('../config/jwt-secret');
 
 const getUser = (req, res, next) => {
   User.findById(req.user._id)
-    .then((user) => res.send({
-      data: {
-        email: user.email,
-        name: user.name,
-      },
-    }))
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundErr('Пользователь не найден');
+      }
+      res.send({
+        data: {
+          email: user.email,
+          name: user.name,
+        },
+      });
+    })
     .catch(next);
 };
 
@@ -36,6 +42,7 @@ const createUser = (req, res, next) => {
     })
     .then((user) => res.status(201).send({
       data: {
+        _id: user._id,
         name: user.name,
         email: user.email,
       },
