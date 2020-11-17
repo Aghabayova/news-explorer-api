@@ -62,19 +62,7 @@ const login = (req, res, next) => {
         { expiresIn: '7d' },
       );
       // отправим токен, браузер сохранит его в куках
-      res.cookie('jwt', token, {
-        // token - наш JWT токен, который мы отправляем
-        maxAge: 3600000 * 24 * 7, // защита от автоматической отправки кук
-        httpOnly: true,
-        sameSite: true,
-      })
-        .send({
-          data: {
-            _id: user._id,
-            email: user.email,
-            name: user.name,
-          },
-        });
+      res.send({ token });
     })
     .catch(next);
 };
