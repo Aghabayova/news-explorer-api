@@ -5,6 +5,7 @@ const { JWT_SECRET } = require('../config/jwt-secret');
 
 module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
+  console.log(token);
   let payload;
 
   try {

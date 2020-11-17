@@ -30,7 +30,6 @@ mongoose.connect(DB_URL, {
 app.use(limiter);
 app.use(helmet());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()); // подключаем парсер кук как мидлвэр
 app.use(requestLogger); // подключаем логгер запросов
 app.use(
