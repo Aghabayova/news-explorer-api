@@ -62,9 +62,6 @@ const login = (req, res, next) => {
         { expiresIn: '7d' },
       );
       // отправим токен, браузер сохранит его в куках
-<<<<<<< HEAD
-      res.send({ token });
-=======
       res.cookie('jwt', token, {
         // token - наш JWT токен, который мы отправляем
         maxAge: 3600000 * 24 * 7, // защита от автоматической отправки кук
@@ -79,7 +76,6 @@ const login = (req, res, next) => {
             name: user.name,
           },
         });
->>>>>>> parent of 0b55746... fix: login changes
     })
     .catch(next);
 };

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const articleSchema = new mongoose.Schema({
   keyword: {
@@ -25,9 +26,7 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) {
-        return /^((http|https):\/\/)(www\.)?([a-zA-z0-9.-]+)\.([a-zA-z]+)([a-zA-z0-9%$?/.-]+)?(#)?$/.test(v);
-      },
+      validator: (v) => validator.isURL(v),
       message: (props) => `${props.value} некоректная ссылка на статью`,
     },
   },
@@ -35,9 +34,7 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) {
-        return /^((http|https):\/\/)(www\.)?([a-zA-z0-9.-]+)\.([a-zA-z]+)([a-zA-z0-9%$?/.-]+)?(#)?$/.test(v);
-      },
+      validator: (v) => validator.isURL(v),
       message: (props) => `${props.value} некорректная ссылка на картинку`,
     },
   },
