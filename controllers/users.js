@@ -66,7 +66,7 @@ const login = (req, res, next) => {
         // token - наш JWT токен, который мы отправляем
         maxAge: 3600000 * 24 * 7, // защита от автоматической отправки кук
         httpOnly: true,
-        sameSite: true,
+        sameSite: false,
       })
         // .send({ message: 'успешная авторизация' });
         .send({
