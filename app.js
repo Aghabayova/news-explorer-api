@@ -17,8 +17,15 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/error-handler');
 
 const { PORT = 3000 } = process.env;
+
 const app = express();
-app.use(cors({ origin: true }));
+
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+);
 
 // подключаемся к серверу mongo
 mongoose.connect(DB_URL, {
