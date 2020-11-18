@@ -43,6 +43,10 @@ app.use(
       'http://api.my-practicum.ru',
       'https://www.api.my-practicum.ru',
       'http://www.api.my-practicum.ru',
+      'http://www.my-practicum.ru',
+      'http://my-practicum.ru',
+      'https://www.my-practicum.ru',
+      'https://my-practicum.ru',
       'https://aghabayova.github.io/news-explorer-frontend/',
 
     ],
